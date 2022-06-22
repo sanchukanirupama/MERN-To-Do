@@ -7,15 +7,10 @@ module.exports.getToDo = async (req,res) =>{
 
 module.exports.saveToDo = async (req,res) =>{
     const {text} = req.body;
-    if (text===""){
-        res.send('view', { errormessage: 'your message' });
-    }else{
-        TodoModel
-        .create({text})
-        .then(()=>res.set(200).send("Added Successfully.."))
-        .catch((err) => console.Console(err))
-    }
-
+    TodoModel
+    .create({text})
+    .then(()=>res.set(200).send("Added Successfully.."))
+    .catch((err) => console.Console(err))
 }
 
 module.exports.deleteToDo = (req,res) =>{
