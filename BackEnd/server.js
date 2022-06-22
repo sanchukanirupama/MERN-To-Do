@@ -9,10 +9,10 @@ app.use(express.json())
 app.use(cors())
 
 
-const dburi = 'mongodb+srv://sanchuka:sanchuka@cluster0.eorew.mongodb.net/TodoList?retryWrites=true&w=majority'; //should move to .env
+const dburi = process.env.dburi;
 
 mongoose.connect(dburi)
-    .then((result) => app.listen(5000))
+    .then((result) => app.listen(process.env.PORT || 8080))
     .catch((err) => console.log(err));
 
 app.use(routes)
